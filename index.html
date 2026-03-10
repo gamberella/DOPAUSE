@@ -640,6 +640,7 @@ background-image: url("data:image/svg+xml,%3Csvg id='Livello_2' data-name='Livel
   function gameOver() {
     isGameRunning = false;
     gameOverEl.style.opacity = '1';
+	document.getElementById('hud').style.opacity = '0';
     timerEl.style.opacity = '0';
     snake.style.opacity = '0';
     
