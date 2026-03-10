@@ -617,20 +617,25 @@ background-image: url("data:image/svg+xml,%3Csvg id='Livello_2' data-name='Livel
 }
 
   function startTimer() {
-    timer = 15;
+  timer = 17;
+  timerEl.textContent = timer;
+  document.getElementById('hud').style.opacity = '1'; // scritta appare subito
+  timerEl.style.opacity = '0';
+
+  setTimeout(() => {
+    timerEl.style.opacity = '1'; // numero appare dopo 2s
+  }, 2000);
+
+  timerInterval = setInterval(() => {
+    timer--;
     timerEl.textContent = timer;
-    timerEl.style.opacity = '1';
-    
-    timerInterval = setInterval(() => {
-      timer--;
-      timerEl.textContent = timer;
-      
-      if (timer <= 0) {
-        clearInterval(timerInterval);
-        gameOver();
-      }
-    }, 1000);
-  }
+    if (timer <= 0) {
+      clearInterval(timerInterval);
+      gameOver();
+    }
+  }, 1000);
+}
+
 
   function gameOver() {
     isGameRunning = false;
