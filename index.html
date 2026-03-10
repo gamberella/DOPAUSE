@@ -186,17 +186,31 @@
   user-select: none;
   pointer-events: auto;
 }
-
-#timer {
+	
+#hud {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  color: black;
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   z-index: 13;
+  opacity: 0;
+  transition: opacity 0.5s;
+  white-space: nowrap;
+}
+#hud-label {
+  color: black;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.2vw;
+  font-weight: 800;
+}
+#timer {
+  color: black;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.2vw;
+  font-weight: 800;
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -362,6 +376,11 @@ background-image: url("data:image/svg+xml,%3Csvg id='Livello_2' data-name='Livel
   </div>
 
 <div id="white-overlay">
+	
+<div id="hud">
+  <span id="hud-label">Take your time… the snake will wait.</span>
+  <span id="timer">15</span>
+</div>
 
  <svg id="snake" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 955.91 119.76">
   <defs>
@@ -386,7 +405,7 @@ background-image: url("data:image/svg+xml,%3Csvg id='Livello_2' data-name='Livel
     <ellipse class="cls-2" cx="867.81" cy="86.2" rx="12.54" ry="12.23"/>
   </g>
 </svg>
-  <div id="timer">5</div>
+  
   <div id="game-over">GAME OVER</div>
 </div>
 
